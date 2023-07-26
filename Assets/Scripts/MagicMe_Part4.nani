@@ -1,2 +1,72 @@
+; SKETCH: THE ESSAY WITH A COFFEE SPILL OVER IT, AS MIA STARES AT IT IN SHOCK
+
+@back auditorium-middle
+
+@camera offset:-0.25,0.0 time:1.0 wait:1.0
+@char mia.surprise look:left pos:45,0 scale:1.0,1.0,1.0 time: 1
+Mia: Are you insane?!
+
+@camera offset:0.25,0.0 time:1.0 wait:1.0
+@char mia.surprise look:left pos:40,0 scale:0.9,0.9,0.9 time: 1
+@char harmony.gloat look:right pos:55,0 scale:1.0,1.0,1.0 time: 1
+Harmony: Oopsie. Sorry about that.
+
+@camera offset:0.35,0.0 time:1.0 wait:1.0
+@hide harmony
+@char neo.smile look:right pos:60,0 scale:1.0,1.0,1.0 time: 1
+Neo: That's a bummer.
+Neo: I guess you' ll have to rewrite it, though I wouldn't bother if I were you.
+Neo: Your essay has no scientific value anyway.
+
+@camera offset:0.25,0.0 time:1.0 wait:1.0
+@hide neo
+@char adam.default look:right pos:60,0 scale:1.0,1.0,1.0 time: 1
+Adam: Mia, what's going on? 
+
+@camera offset:-0.25,0.0 time:1.0 wait:1.0
+@char adam.default look:right pos:60,0 scale:0.9,0.9,0.9 time: 1
+@char mia.default look:left pos:45,0.0,1.0 scale:1.0,1.0,1.0 time: 1
+
+@hidePrinter 
+@choice "Complain about Harmony." set:choice2_9=1 goto:.Choice2_9-var1
+@choice "Not to say anything"     set:choice2_9=2 goto:.Choice2_9-var2
+@stop
+
+#Choice2_9-var1
+Mia: VARIANT 2_9 - 1!
+-1 Magic.
+@set choice2_10=1
+@goto .Auditorium-Table
+
+#Choice2_9-var2
+Mia: VARIANT 2_9 - 2!
+
+@hidePrinter 
+@choice "Make Harmony apologize (you need +5 Magic)." set:choice2_10=1 goto:.Choice2_10-var1
+@choice "Ask for extra time to rewrite the essay."    set:choice2_10=2 goto:.Choice2_10-var2
+@stop
+
+#Choice2_10-var1
+Mia: VARIANT 2_10 - 1!
+@goto .Auditorium-Table
+
+#Choice2_10-var2
+Mia: VARIANT 2_10 - 2!
+ +1 Magic.
+
+#Auditorium-Table
+@hideChars
+@back auditorium-table
+
+;IF CHOICE
+@goto .Line-1 if:"(choice2_10==1)"
+@goto .Line-2 if:"(choice2_9==2 && choice2_10==2)"
+
+#Line-1
+Mia: Auditorium-Table 111!
+
+#Line-2
+Mia: Auditorium-Table 222!
+
 
 @stop

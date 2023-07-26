@@ -276,3 +276,5 @@ MonoBehaviour:
     - name: MagicMe_Part4
       pathPrefix: Scripts
       guid: fb4dd5782f4d28049ae88c5ef3bde9b0
+  - Id: CharacterAvatars
+    Resources: []
