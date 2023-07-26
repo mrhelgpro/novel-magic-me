@@ -33,7 +33,34 @@ Adam: Mia, what's going on?
 @stop
 
 #Choice2_9-var1
-Mia: VARIANT 2_9 - 1!
+...I couldn't let her to get away with it!
+Mia: Harmony spilled her coffee all over my essay!
+@hide adam
+
+@camera offset:0.25,0.0 time:1.0 wait:1.0
+@char mia.default look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9 time: 1
+@char harmony.gloat look:right pos:55,0.0,0.0 scale:1.0,1.0,1.0 time: 1
+...Harmony rolled her eyes.
+Harmony: I didn't do it on purpose, Mr. Harrelson. 
+
+@camera offset:-0.25,0.0 time:1.0 wait:1.0
+@char harmony.gloat look:right pos:55,0.0,1.0 scale:0.9,0.9,0.9 time: 1
+@char mia.sad look:left pos:45,0.0,0.0 scale:1.0,1.0,1.0 time: 1
+Mia: But my work is ruined!
+
+@camera offset:0.25,0.0 time:1.0 wait:1.0
+@hide harmony
+@char mia.sad look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9 time: 1
+@char neo.smile look:right pos:60,0.0,0.0 scale:1.0,1.0,1.0 time: 1
+Neo: How do we know you didn't want it ruined? You could've tripped Harmony intentionally. 
+Neo: I mean, this way nobody gets to see your incapability to write anything coherent.
+
+@hide neo
+@char mia.sad look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9 time: 1
+@char adam.default look:right pos:60,0.0,0.0 scale:1.0,1.0,1.0 time: 1
+...There were some nasty chuckles in the classroom. Then Mr. Harrelson raised his voice.
+Adam: Quiet, class! Mia, whatever the nature of your problem, I'm giving you extra time. So don't worry.
+
 -1 Magic.
 @set choice2_10=1
 @goto .Auditorium-Table
