@@ -52,21 +52,89 @@ Mia: VARIANT 2_10 - 1!
 
 #Choice2_10-var2
 Mia: VARIANT 2_10 - 2!
- +1 Magic.
++1 Magic.
 
 #Auditorium-Table
-@hideChars
+@hideAll
 @back auditorium-table
 
 ;IF CHOICE
-@goto .Line-1 if:"(choice2_10==1)"
-@goto .Line-2 if:"(choice2_9==2 && choice2_10==2)"
+@goto .Auditorium-Table_Var1 if:"(choice2_10==1)"
+@goto .Auditorium-Table_Var2 if:"(choice2_9==2 && choice2_10==2)"
 
-#Line-1
+#Auditorium-Table_Var1
 Mia: Auditorium-Table 111!
+@goto .Auditorium-Table_Then
 
-#Line-2
+#Auditorium-Table_Var2
 Mia: Auditorium-Table 222!
 
+#Auditorium-Table_Then
+Mia: Auditorium-Table Then!
+
+@hidePrinter 
+@choice "It's a chance to get to know him better." set:choice2_11=1 goto:.Choice2_11-var1
+@choice "It's better to refuse."                   set:choice2_11=2 goto:.Choice2_11-var2
+@stop
+
+#Choice2_11-var1
+Mia: VARIANT 2_11 - 1!
+@goto .Room-Diana
+
+#Choice2_11-var2
+Mia: VARIANT 2_11 - 2!
+
+#Room-Diana
+@hideAll
+@back room-diana
+
+;IF CHOICE
+@goto .Room-Diana_Var1 if:"(choice2_10==1)"
+@goto .Room-Diana_Var2 if:"(choice2_9==2 && choice2_10==2)"
+
+#Room-Diana_Var1
+Mia: VARIANT 2_11 - 1!
+@goto .Room-Diana_Then
+
+#Room-Diana_Var2
+Mia: VARIANT 2_11 - 2!
+
+#Room-Diana_Then
+Mia: VARIANT Then!
+
+#Cafe-Green_Square
+@hideAll
+@back cafe-green_square
+
+Mia: Cafe!
+
+;IF CHOICE
+@goto .Cafe-Green_Square_Var1 if:"(choice2_10==1)"
+@goto .Cafe-Green_Square_Var2 if:"(choice2_9==2 && choice2_10==2)"
+
+#Cafe-Green_Square_Var1
+Mia: Cafe VAR1!
+
+#Cafe-Green_Square_Var2
+@hidePrinter 
+@choice "It's a chance to get to know him better." set:choice2_12=1 goto:.Choice2_12-var1
+@choice "It's better to refuse."                   set:choice2_12=2 goto:.Choice2_12-var2
+@choice "It's better to refuse."                   set:choice2_12=3 goto:.Choice2_12-var3
+@stop
+
+#Choice2_12-var1
+Mia: VARIANT 2_12 - 1!
+@goto .Neo_Threat
+
+#Choice2_12-var2
+Mia: VARIANT 2_12 - 2!
+@goto .Neo_Threat
+
+#Choice2_12-var3
+Mia: VARIANT 2_12 - 3!
+@goto .Neo_Threat
+
+#Neo_Threat
+Neo: Threat!
 
 @stop
