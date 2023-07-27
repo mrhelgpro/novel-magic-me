@@ -2,83 +2,183 @@
 
 @back auditorium-middle
 
-@camera offset:-0.25,0.0 time:1.0 wait:false
-@char mia.surprise look:left pos:45,0 scale:1.0,1.0,1.0
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.surprise look:left pos:45,0 scale:1,1,1
 Mia: Are you insane?!
 
-@camera offset:0.25,0.0 time:1.0 wait:true
-@char mia.surprise look:left pos:40,0 scale:0.9,0.9,0.9
-@char harmony.gloat look:right pos:55,0 scale:1.0,1.0,1.0
+@camera offset:0.25,0 time:1.0 wait:true
+@char mia.surprise look:left pos:40,0,1 scale:0.9,0.9,0.9
+@char harmony.gloat look:right pos:55,0,0 scale:1,1,1
 Harmony: Oopsie. Sorry about that.
 
 @camera offset:0.35,0.0 time:1.0 wait:false
 @hide harmony
-@char neo.smile look:right pos:60,0 scale:1.0,1.0,1.0
+@char neo.smile look:right pos:60,0,0 scale:1,1,1
 Neo: That's a bummer.
 Neo: I guess you' ll have to rewrite it, though I wouldn't bother if I were you.
 Neo: Your essay has no scientific value anyway.
 
 @camera offset:0.25,0.0 time:1.0 wait:false
 @hide neo
-@char adam.default look:right pos:60,0 scale:1.0,1.0,1.0
+@char adam.default look:right pos:60,0,0 scale:1,1,1
 Adam: Mia, what's going on? 
 
-@camera offset:-0.25,0.0 time:1.0 wait:false
-@char adam.default look:right pos:60,0 scale:0.9,0.9,0.9
-@char mia.default look:left pos:45,0.0,1.0 scale:1.0,1.0,1.0
+@camera offset:-0.25,0 time:1.0 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
 
+;CHOICE 2_9
 @hidePrinter 
 @choice "Complain about Harmony." set:choice2_9=1 goto:.Choice2_9-var1
 @choice "Not to say anything"     set:choice2_9=2 goto:.Choice2_9-var2
 @stop
 
+;Complain about Harmony.
 #Choice2_9-var1
 ...I couldn't let her to get away with it!
 Mia: Harmony spilled her coffee all over my essay!
 @hide adam
 
 @camera offset:0.25,0.0 time:1.0 wait:false
-@char mia.default look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9
-@char harmony.gloat look:right pos:55,0.0,0.0 scale:1.0,1.0,1.0
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char harmony.gloat look:right pos:55,0,0 scale:1,1,1
 ...Harmony rolled her eyes.
 Harmony: I didn't do it on purpose, Mr. Harrelson. 
 
-@camera offset:-0.25,0.0 time:1.0 wait:false
-@char harmony.gloat look:right pos:55,0.0,1.0 scale:0.9,0.9,0.9
-@char mia.sad look:left pos:45,0.0,0.0 scale:1.0,1.0,1.0
+@camera offset:-0.25,0 time:1 wait:false
+@char harmony.gloat look:right pos:55,0,1 scale:0.9,0.9,0.9
+@char mia.sad look:left pos:45,0,0 scale:1,1,1
 Mia: But my work is ruined!
 
 @camera offset:0.25,0.0 time:1.0 wait:false
 @hide harmony
-@char mia.sad look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9
-@char neo.smile look:right pos:60,0.0,0.0 scale:1.0,1.0,1.0
+@char mia.sad look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.smile look:right pos:60,0.0,0.0 scale:1,1,1
 Neo: How do we know you didn't want it ruined? You could've tripped Harmony intentionally. 
 Neo: I mean, this way nobody gets to see your incapability to write anything coherent.
 
 @hide neo
-@char mia.sad look:left pos:45,0.0,1.0 scale:0.9,0.9,0.9
-@char adam.default look:right pos:60,0.0,0.0 scale:1.0,1.0,1.0
+@char mia.sad look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
 ...There were some nasty chuckles in the classroom. Then Mr. Harrelson raised his voice.
 Adam: Quiet, class! Mia, whatever the nature of your problem, I'm giving you extra time. So don't worry.
 
+@hide mia
+@hide adam
+@camera offset:0,0 time:1 wait:false
+@char neo.smile look:right pos:50,0,0 scale:1,1,1
+...Neo grimaced. I had to start over.
+@hideChars
 -1 Magic.
 @set choice2_10=1
 @goto .Auditorium-Table
 
+;Not to say anything
 #Choice2_9-var2
-Mia: VARIANT 2_9 - 2!
+...I wasn't sure what to do. If I exposed Harmony because of the coffee, I'd become a walking cringe. But was there enough time to rewrite the essay?
+Mia: I'm sorry, Professor. I got distracted and caused this to happen myself.
+@hide adam
+@camera offset:0.25,0 time:1 wait:false
+@char harmony.smile look:right pos:56,0,1 scale:0.9,0.9,0.9
+@char neo.smile look:right pos:65,0,2 scale:0.85,0.85,0.85
+...I heard Harmony and Neo snicker behind me.
 
+;CHOICE 2_10
 @hidePrinter 
 @choice "Make Harmony apologize (you need +5 Magic)." set:choice2_10=1 goto:.Choice2_10-var1
 @choice "Ask for extra time to rewrite the essay."    set:choice2_10=2 goto:.Choice2_10-var2
 @stop
 
+;Make Harmony apologize (you need +5 Magic)
 #Choice2_10-var1
-Mia: VARIANT 2_10 - 1!
+@hide neo
+@hide harmony
+@camera offset:-0.25,0 time:1 wait:false
+...I suddenly remembered that I could sometimes influence people. I pressed my eyes shut and concentrated.
+
+@camera offset:-0.35,0 time:1 wait:false
+@char mia.closeEyes look:left pos:47,-20,0 scale:1.2,1.2,1.2
+Mia:  Admit you did it.
+@hide mia
+
+@camera offset:0.0,0 time:1 wait:false
+@char harmony.surprise look:right pos:50,0,0 scale:1,1,1
+...Harmony stood up and suddenly gave out the truth.
+Harmony: Mr. Harrelson, it was my fault. I deliberately spilled my coffee on Mia's essay. I'm sorry, Mia!
+
+@camera offset:0.45,0 time:1 wait:false
+@char neo.surprise look:right pos:65,0,1 scale:0.9,0.9,0.9
+...Neo jumped. The room fell silent. But Mr. Harrelson wasn't looking at Harmony, he fixed his gaze on me. He looked both intrigued and perplexed.
+@hide harmony
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:left pos:40,0,0 scale:1,1,1
+Adam: That's nice to hear, Miss Harmony. Not that you did it, but that you had the courage to own up to it. I don't think anyone would object to Mia taking some extra time to rewrite her essay, given the circumstances
+@hide adam
+
+@camera offset:0.25,0 time:1 wait:false
+@char neo.surprise look:right pos:55,0,1 scale:1,1,1
+Neo: What'd you do that for?
+
+@camera offset:0.0,0 time:1 wait:false
+@char neo.surprise look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char harmony.default look:left pos:42,0,1 scale:0.9,0.9,0.9
+...Harmony stared at him, confused.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.surprise look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char harmony.surprise look:left pos:42,0,0 scale:1,1,1
+Harmony: What do you mean?
+
+@camera offset:0.25,0 time:1 wait:false
+@char harmony.default look:left pos:42,0,1 scale:0.9,0.9,0.9
+@char neo.surprise look:right pos:60,0,0 scale:1,1,1
+Neo: Why did you admit spilling the stupid coffee?
+
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.surprise look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char harmony.surprise look:left pos:42,0,0 scale:1,1,1
+Harmony: Have you gone mad?? I admitted no such thing!
+
+@camera offset:0.25,0 time:1 wait:false
+@char harmony.default look:left pos:42,0,1 scale:0.9,0.9,0.9
+@char neo.angry look:right pos:60,0,0 scale:1,1,1
+Neo: Now you're being plain scary. I think you need to see a doctor.
+
+@hide harmony
+@hide neo
+@camera offset:0,0 time:1 wait:false
+...Neo picked up his essay and went to turn it in.
+@char mia.smile look:left pos:47,-20,0 scale:1.2,1.2,1.2
+...I gave Harmony a devious wink as she just stood there in shock...
+Mia: Thanks for confessing. I forgive you. 
 @goto .Auditorium-Table
 
+;Ask for extra time to rewrite the essay.
 #Choice2_10-var2
-Mia: VARIANT 2_10 - 2!
+@hide neo
+@hide harmony
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I figured the only sensible thing left for me to do was to ask Mr. Harrelson to give me more time to rewrite the essay.
+Mia:  I'm sorry this happened. Can I ask for extra time to rewrite the whole thing?
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: I'm sorry, Mia. You'll just have to turn it in as it is.
+
+@hide adam
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I was devastated. The essay turned out to be a waste of time and effort. I wasn't going to get that internship. 
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.default look:right pos:60,0,0 scale:1,1,1
+Neo: Well, good luck I guess. I bet you're going to win.
+...Oddly, for a split second it seemed like Neo was not happy about how things turned out.
+@hideChars
 +1 Magic.
 
 #Auditorium-Table
@@ -90,78 +190,362 @@ Mia: VARIANT 2_10 - 2!
 @goto .Auditorium-Table_Var2 if:"(choice2_9==2 && choice2_10==2)"
 
 #Auditorium-Table_Var1
-Mia: Auditorium-Table 111!
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+...I finished rewriting my essay, walked up to Mr. Harrelson's desk and turned it in. There was no one left in the room besides the two of us.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: Thank you, Mia. I'm sure your essay is very interesting.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Thank YOU. I hope you won't regret having to wait.
 @goto .Auditorium-Table_Then
 
 #Auditorium-Table_Var2
-Mia: Auditorium-Table 222!
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+...I walked up to Mr. Harrelson's desk and turned in my dripping essay.
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: I'm sorry about that. I was trying to do the best I can. But maybe luck is not on my side.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: I'm sorry too. But there will be lots of competitions to follow. You're sure to win one.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: I hope so.
 
 #Auditorium-Table_Then
-Mia: Auditorium-Table Then!
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: I meant to ask you, did you read the book I recommended? Did anything you read there come in handy today?
 
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...It would have been embarrassing to admit that I fell asleep each time I attempted to read it.
+Mia: Not yet... I mean, I checked the book out, but... There's so much in there, I haven't really grasped it yet...
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+...Mr. Harrelson kept peering at me closely.
+Adam: No wonder. This book, how should I say this, is of profound depth and contains many layers of knowledge. Well, I hope you continue working with it.
+
+@hide adam
+@camera offset:-0.25,0 time:1 wait:false
+...I nodded and turned toward the exit. Mr. Harrelson called out to me.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: Mia, how would you like to grab some dinner and talk things over? 
+
+@camera offset:0,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+...I felt blood rushing to my face. Was flirting with me?? That wouldn't be right... Would it?
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: I suggest we meet at Green Square Cafe here on campus. I'd be happy to tell you a bit about my scientific discoveries...and learn more about your plans with regard to science and learning.
+
+;CHOICE 2_11
 @hidePrinter 
 @choice "It's a chance to get to know him better." set:choice2_11=1 goto:.Choice2_11-var1
 @choice "It's better to refuse."                   set:choice2_11=2 goto:.Choice2_11-var2
 @stop
 
+;It's a chance to get to know him better.
 #Choice2_11-var1
-Mia: VARIANT 2_11 - 1!
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I figured Mr. Harrelson probably needed a research assistant or something, and I looked like a promising student to him. It was stupid to think he was flirting. But the idea of spending some time with him sounded so nice...
+Mia: Sure. When is a good time for you?
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:55,0,0 scale:1,1,1
+...Mr. Harrelson briefly checked the calendar in his phone.
+Adam: Six o'clock. Can you make it?
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...Our eyes were locked...I couldn't look away. It felt like his eyes are pulling me in...
+Mia: I'm sorry...
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:55,0,0 scale:1,1,1
+Adam: So, six o'clock at Green Square?
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Yup. See you there!
+...Mr. Harrelson nodded and started packing up the student essays. I walked out of the classroom.
+
+@hideChars
+ADAM IS GRATEFUL FOR YOUR TRUST
 @goto .Room-Diana
 
+;It's better to refuse.
 #Choice2_11-var2
-Mia: VARIANT 2_11 - 2!
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...This felt very odd. I was not about to engage in some kind of an "extracurricular" relationship with a prof.
+Mia: I'm sorry. I can't today. Or at all, actually...
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:55,0,0 scale:1,1,1
+Adam: No, I'm sorry. I think I scared you a bit. Actually, it's quite common for a professor to try to get to know promising students that might advance science... I do believe that you could write a fantastic thesis about the Middle Ages. I could be your academic advisor. But the time to start preparing for that is now.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I felt like a total idiot. What was I thinking! Mr. Harrelson could not possibly be attracted to me! This was purely a scientific proposal, a learning opportunity!
+Mia: Hmm...I think I could reschedule my plans. What should I prepare for the dinner?
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.smile look:right pos:55,0,0 scale:1,1,1
+Adam: Such as?
+...My question seemed to amuse him, and I felt embarrassed again.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Well... I mean, prepare to discuss a specific topic. Maybe I should bring my notes...
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:55,0,0 scale:1,1,1
+Adam: You don't need to. We'll just talk and find some junction points where our opinions and interests intersect.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Sure. Ok. Great!
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:55,0,0 scale:1,1,1
+Adam: So, six o'clock at Green Square?
+
+@camera offset:-0.25,0 time:1 wait:false
+@hide adam
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Yup. See you there!
+...Mr. Harrelson nodded and started packing up the student essays. I walked out of the classroom, my face burning.
 
 #Room-Diana
 @hideAll
 @back room-diana
+...Dina was home already when I burst into the room. She immediately noticed how worked up I was.
+@camera offset:0.25,0 time:1 wait:false
+@char dina.surprise look:right pos:55,0,0 scale:1,1,1
+Dina: What's up? You look like you've seen a ghost.
 
 ;IF CHOICE
 @goto .Room-Diana_Var1 if:"(choice2_10==1)"
 @goto .Room-Diana_Var2 if:"(choice2_9==2 && choice2_10==2)"
 
 #Room-Diana_Var1
-Mia: VARIANT 2_11 - 1!
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: I'm having dinner with Mr. Harrelson tonight!
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.surprise look:right pos:60,0,0 scale:1,1,1
+Dina: Wow, girl! It's your first day of college, and you've already snatched up the most handsome prof of all!
 @goto .Room-Diana_Then
 
 #Room-Diana_Var2
-Mia: VARIANT 2_11 - 2!
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: I failed the essay. And I'm having dinner with Mr. Harrelson tonight.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.default look:right pos:60,0,0 scale:1,1,1
+Dina: I don't get how these two things are connected, but congratulations! It's your first day of college, and you've already snatched up the most handsome prof of all!
 
 #Room-Diana_Then
-Mia: VARIANT Then!
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: That's just business, I mean, it's an academic opportunity!
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.default look:right pos:60,0,0 scale:1,1,1
+Dina: Chill, I'm not about to judge you even if it's not a 100% academic opportunity!
+
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I think I blushed a bit.
+Mia: Please stop the insinuations. Everyone knows it's wrong for professors to go out with their students, and vice versa.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.default look:right pos:60,0,0 scale:1,1,1
+Dina: Sure. Even though all the prerequisites for an awesome love story are there...
+
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Prerequisites? Like mutual respect or a common passion for history?
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.default look:right pos:60,0,0 scale:1,1,1
+Dina: Obstacles, silly! Stuff that prevents potential lovers from being together. Social status, financial differences, other committments, a terrible sickness...
+
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Are those absolutely necessary?..
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.default look:right pos:60,0,0 scale:1,1,1
+Dina: Sure! Romeo and Juliet couldn't be together because their families were feuding and Romeo killed Juliet's brother. No one would ever care about their story if they just averagely met, fell in love and had babies... boooring!
+
+@camera offset:-0.25,0 time:1 wait:false
+@char dina.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.smile look:left pos:45,0,0 scale:1,1,1
+...I started laughing but felt myself blushing again.
+Mia: Oh, it's almost six. It's not polite to be late to a scientific discussion with a professor.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.smile look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char dina.smile look:right pos:60,0,0 scale:1,1,1
+Dina: Especially when he's so handsome.
 
 #Cafe-Green_Square
 @hideAll
 @back cafe-green_square
+...The dining hall was in the loft overlooking the entire valley, the campus, the college spires... Adam was already there, with a bottle of wine on the table to keep him company while he waited. I greeted him as he moved out a chair for me, and then I looked at the label. 
 
-Mia: Cafe!
+@camera offset:-0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Alchemist's Tears? What an odd name for a wine!
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: I know. It's from a French winery, and it's based on a recipe found in a workshop that belonged to a medieval alchemist. They were an interesting lot, the alchemists. Much like the witches.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+...I remembered the strange dream I had about the alchemist and his remedy for the curse... There was something else in that dream... a silver jar... with some kind of balm inside? Mr. Harrelson interrupted my recollection.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: Unlike witches, however, they practiced things that modern science, albeit with a strain, can call scientific. Like finding the secret to immortality or turning lead into gold.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: Yes, they were scientists in a world almost devoid of science. But I think they rather tried to explore the fabric of the universe. They wanted to know what stuff was made. 
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.default look:right pos:60,0,0 scale:1,1,1
+Adam: So you don't think they were looking for the philosopher's' stone?
+
+@camera offset:-0.25,0 time:1 wait:false
+@char adam.default look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: I think the philosopher's' stone was a metaphor for what they had instead of the scientific method back then. I mean, I don't believe it was an actual physical substance.
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char adam.smile look:right pos:60,0,0 scale:1,1,1
+...Mr. Harrelson smiled at me.
+Adam: You're an extraordinary girl, Mia. This is the first time I see so much skepticism in someone so young... 
+
+@camera offset:-0.25,0 time:1 wait:false
+@hide adam
+@char mia.surprise look:left pos:45,0,0 scale:1,1,1
+Mia: Wow, what's he doing here?
+@char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
+...Neo was leering at me through the lens of his phone. A second later, he was standing at our table.
 
 ;IF CHOICE
 @goto .Cafe-Green_Square_Var1 if:"(choice2_10==1)"
 @goto .Cafe-Green_Square_Var2 if:"(choice2_9==2 && choice2_10==2)"
 
 #Cafe-Green_Square_Var1
-Mia: Cafe VAR1!
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.smile look:right pos:60,0,0 scale:1,1,1
+...Neo showed us his phone screen with a triumphant look on his face.
+Neo: Fancy meeting you here! A prof and his student in a romantic setting! No, no, of course it's not what it looks like, you don't have to explain. Of course the student isn't flirting with the prof because she wants the internship. And of course the wine is only there as table decor; who cares that the student is underage??
 
+;CHOICE 2_12
 #Cafe-Green_Square_Var2
 @hidePrinter 
-@choice "It's a chance to get to know him better." set:choice2_12=1 goto:.Choice2_12-var1
-@choice "It's better to refuse."                   set:choice2_12=2 goto:.Choice2_12-var2
-@choice "It's better to refuse."                   set:choice2_12=3 goto:.Choice2_12-var3
+@choice "Ignore him."                   set:choice2_12=1 goto:.Choice2_12-var1
+@choice "Get angry at him."             set:choice2_12=2 goto:.Choice2_12-var2
+@choice "Ask him to delete the photo."  set:choice2_12=3 goto:.Choice2_12-var3
 @stop
 
+;Ignore him.
 #Choice2_12-var1
-Mia: VARIANT 2_12 - 1!
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: ->>>>>
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.smile look:right pos:60,0,0 scale:1,1,1
+Neo: ->>>>>
+
 @goto .Neo_Threat
 
+;Get angry at him.
 #Choice2_12-var2
-Mia: VARIANT 2_12 - 2!
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.default look:left pos:45,0,0 scale:1,1,1
+Mia: ->>>>>
+
 @goto .Neo_Threat
 
+;Ask him to delete the photo.
 #Choice2_12-var3
-Mia: VARIANT 2_12 - 3!
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char mia.angry look:left pos:45,0,0 scale:1,1,1
+Mia: ->>>>>
+
+@camera offset:0.25,0 time:1 wait:false
+@char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.smile look:right pos:60,0,0 scale:1,1,1
+Neo: ->>>>>
 @goto .Neo_Threat
 
 #Neo_Threat
-Neo: Threat!
-
+@hideAll
+NEO'S THREAT
 @stop
