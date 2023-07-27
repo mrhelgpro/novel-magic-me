@@ -514,22 +514,45 @@ Neo: Fancy meeting you here! A prof and his student in a romantic setting! No, n
 @camera offset:-0.25,0 time:1 wait:false
 @char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
 @char mia.default look:left pos:45,0,0 scale:1,1,1
-Mia: ->>>>>
+...I decided to let him think what he will. I had the freedom of having dinner with whomever I wanted.
+Mia: What's your problem? Are you envious that you didn't make friends with the professor first?
 
 @camera offset:0.25,0 time:1 wait:false
 @char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
 @char neo.smile look:right pos:60,0,0 scale:1,1,1
-Neo: ->>>>>
-
+Neo: Nah. I'm just here to make some high-quality photos. Just in case.
 @goto .Neo_Threat
 
 ;Get angry at him.
 #Choice2_12-var2
-@camera offset:-0.25,0 time:1 wait:false
+@camera offset:-0.35,0 time:1 wait:false
 @char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
-@char mia.default look:left pos:45,0,0 scale:1,1,1
-Mia: ->>>>>
+@char mia.closeEyes look:left pos:45,-20,0 scale:1.2,1.2,1.2
+...Why was he stalking me all day??
+Mia: I hope you choke on your spite, Neo.
+...I felt my mother's amulet vibrate. Before I knew what was happening, Neo grabbed an olive from the bowl on our table and popped it in his mouth. And suddenly, right in front of my eyes, his face changed, he started choking, clutching at his throat
+@char neo.surprise look:right pos:60,0,1 scale:0.9,0.9,0.9
+...He was unironically choking! I told myself I should think a hundred times before making wishes like that again!
+...I jumped up to him, grabbed him from behind and yanked him up a little. And again! Mr. Harrelson joined me.
 
+@camera offset:0.25,0 time:1 wait:false
+@hide mia
+@char neo.surprise look:right pos:60,0,0 scale:1,1,1
+Neo: Nah. I'm just here to make some high-quality photos. Just in case.
+...The olive finally sprung out of Neo's throat, and he started to cough, which meant he was breathing again. I let out a sigh of relief. He gave me an angry look and pushed me away.
+
+@camera offset:-0.25,0 time:1 wait:false
+@char neo.surprise look:right pos:60,0,1 scale:0.9,0.9,0.9
+@char adam.surprised look:right pos:45,0,0 scale:1,1,1
+Adam: Neo, are you all right? 
+
+@camera offset:0.25,0 time:1 wait:false
+@char adam.surprised look:right pos:45,0,1 scale:0.9,0.9,0.9
+@char neo.surprise look:right pos:60,0,0 scale:1,1,1
+Neo: I'm fine. It's your little minion who's the problem.
+
+@hideChars
++1 Magic.
 @goto .Neo_Threat
 
 ;Ask him to delete the photo.
@@ -537,12 +560,12 @@ Mia: ->>>>>
 @camera offset:-0.25,0 time:1 wait:false
 @char neo.smile look:right pos:60,0,1 scale:0.9,0.9,0.9
 @char mia.angry look:left pos:45,0,0 scale:1,1,1
-Mia: ->>>>>
+Mia: I didn't give you permission to take my picture, and you're intruding. Don't be rude. Please delete it.
 
 @camera offset:0.25,0 time:1 wait:false
 @char mia.default look:left pos:45,0,1 scale:0.9,0.9,0.9
 @char neo.smile look:right pos:60,0,0 scale:1,1,1
-Neo: ->>>>>
+Neo: This is a public place, you dummy. You're allowed to take photos of anyone you want here, including celebrities such as your date.
 @goto .Neo_Threat
 
 #Neo_Threat
